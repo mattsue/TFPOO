@@ -17,7 +17,7 @@ public class TremTest {
     @Test
     public void testGetQuantLocomotiva() {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
-        assertEquals(1, trem.getQuantLocomotiva());
+        assertEquals(1, trem.getQuantLocomotivas());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class TremTest {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
         GaragemCarros gc = new GaragemCarros();
         Locomotiva locomotiva = new Locomotiva(2, 2000, 10);
-        assertTrue(trem.engataCarro(locomotiva, gc));
+        assertTrue(trem.engataLocomotiva(locomotiva, gc));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class TremTest {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
         GaragemCarros gc = new GaragemCarros();
         Vagao vagao = new Vagao(2, 200);
-        assertTrue(trem.engataCarro(vagao, gc));
+        assertTrue(trem.engataVagao(vagao, gc));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class TremTest {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
         GaragemCarros gc = new GaragemCarros();
         Locomotiva locomotiva = new Locomotiva(2, 2000, 10);
-        trem.engataCarro(locomotiva, gc);
-        assertTrue(trem.desengataCarro(gc));
+        trem.engataLocomotiva(locomotiva, gc);
+        assertTrue(trem.desengataLocomotiva(gc));
     }
 
     @Test
@@ -56,8 +56,8 @@ public class TremTest {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
         GaragemCarros gc = new GaragemCarros();
         Vagao vagao = new Vagao(2, 200);
-        trem.engataCarro(vagao, gc);
-        assertTrue(trem.desengataCarro(gc));
+        trem.engataVagao(vagao, gc);
+        assertTrue(trem.desengataVagao(gc));
     }
 
     @Test
@@ -65,9 +65,9 @@ public class TremTest {
         Trem trem = new Trem(1, new Locomotiva(1, 2000, 10), new GaragemCarros());
         GaragemCarros gc = new GaragemCarros();
         Vagao vagao = new Vagao(2, 200);
-        trem.engataCarro(vagao, gc);
+        trem.engataVagao(vagao, gc);
         trem.desengataTudo(gc);
-        assertEquals(0, trem.getQuantLocomotiva());
+        assertEquals(0, trem.getQuantLocomotivas());
         assertEquals(0, trem.getQuantVagoes());
     }
 }

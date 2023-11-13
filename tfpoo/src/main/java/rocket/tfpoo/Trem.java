@@ -17,14 +17,18 @@ public class Trem {
     public Trem(int id, Locomotiva locomotiva, GaragemCarros gc){
         this.id = id;
         this.carros = new ArrayList<Carro>();
-        engataCarro(locomotiva, gc);
+        engataLocomotiva(locomotiva, gc);
     }
 
     public int getId() {
         return id;
     }
+    
+    public int getSize(){
+        return carros.size();
+    }
 
-    public int getQuantLocomotiva() {
+    public int getQuantLocomotivas() {
         int cont = 0;
         for(Carro carro : carros){
             if(carro instanceof Locomotiva){
@@ -59,82 +63,85 @@ public class Trem {
     public Carro getCarroByPos(int posicao) {
         return carros.get(posicao);
     }
-
-    public boolean engataCarro(Carro carro, GaragemCarros gc) {
-        if(carro instanceof Vagao){
-            Vagao vagao = (Vagao) carro;
-            if (this.capacidadeTotalPeso > vagao.getCapacidade() && this.capacidadeTotalVagoes > 0){
-                carros.add(vagao);
-                vagaoEngatado = true;
-                vagao.setIdTrem(this.id);
-                this.capacidadeTotalPeso -= vagao.getCapacidade();
-                this.capacidadeTotalVagoes -= 1;
-                gc.removeCarro(vagao);
-                return true;
+    
+    public boolean engataLocomotiva(Locomotiva locomotiva, GaragemCarros gc){
+        if (vagaoEngatado == false) {
+            carros.add(locomotiva);
+            locomotiva.setIdTrem(this.id);
+            this.capacidadeTotalPeso += locomotiva.getMaxPeso();
+            this.capacidadeTotalVagoes += locomotiva.getMaxVagoes();
+            if(carros.size()>1){
+                this.capacidadeTotalPeso = capacidadeTotalPeso * 0.9;
+                this.capacidadeTotalVagoes = (int) (capacidadeTotalVagoes * 0.9);
             }
-            else {
-                return false;
-            }
-        }else{
-            Locomotiva locomotiva = (Locomotiva) carro;
-            if (vagaoEngatado == false) {
-                carros.add(locomotiva);
-                locomotiva.setIdTrem(this.id);
-                this.capacidadeTotalPeso += locomotiva.getMaxPeso();
-                this.capacidadeTotalVagoes += locomotiva.getMaxVagoes();
-                if(carros.size()>1){
-                    this.capacidadeTotalPeso = capacidadeTotalPeso * 0.9;
-                    this.capacidadeTotalVagoes = (int) (capacidadeTotalVagoes * 0.9);
-                }
-                gc.removeCarro(locomotiva);
-                return true;
-            }
-            else {
-                return false;
-            }
+            gc.removeCarro(locomotiva);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public boolean engataVagao(Vagao vagao, GaragemCarros gc) {
+        if (this.capacidadeTotalPeso > vagao.getCapacidade() && this.capacidadeTotalVagoes > 0){
+            carros.add(vagao);
+            vagaoEngatado = true;
+            vagao.setIdTrem(this.id);
+            this.capacidadeTotalPeso -= vagao.getCapacidade();
+            this.capacidadeTotalVagoes -= 1;
+            gc.removeCarro(vagao);
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
-    public boolean desengataCarro(GaragemCarros gc){
-        if(carros.get(carros.size()-1) instanceof Locomotiva){
-            boolean resposta = false;
-            if(vagaoEngatado == false){
-                Locomotiva locomotiva = (Locomotiva) carros.get(carros.size()-1);
-                locomotiva.setIdTrem(0);
-                if(carros.size()>1){
-                    this.capacidadeTotalPeso -= locomotiva.getMaxPeso() * 0.9;
-                    this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes() * 0.9;
-                }else{
-                    this.capacidadeTotalPeso -= locomotiva.getMaxPeso();
-                    this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes();
-                    }
-                carros.remove(locomotiva);
-                gc.addCarro(locomotiva);
-                resposta = true;
+    public boolean desengataLocomotiva(GaragemCarros gc){
+        boolean resposta = false;
+        if(vagaoEngatado == false){
+            Locomotiva locomotiva = (Locomotiva) carros.get(carros.size()-1);
+            locomotiva.setIdTrem(0);
+            if(carros.size()>1){
+                this.capacidadeTotalPeso -= locomotiva.getMaxPeso() * 0.9;
+                this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes() * 0.9;
+            }else{
+                this.capacidadeTotalPeso -= locomotiva.getMaxPeso();
+                this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes();
             }
-            return resposta;
-        }else{
-            boolean resposta = false;
-            if(vagaoEngatado){
-                if(getQuantVagoes() == 1){
-                    vagaoEngatado = false;
-                }
-                Vagao vagao = (Vagao) carros.get(carros.size()-1);
-                vagao.setIdTrem(0);
-                this.capacidadeTotalPeso += vagao.getCapacidade();
-                this.capacidadeTotalVagoes += 1;
-                carros.remove(vagao);
-                gc.addCarro(vagao);
-                resposta = true;
-            }
-            return resposta;
+            carros.remove(locomotiva);
+            gc.addCarro(locomotiva);
+            resposta = true;
         }
+        return resposta;
+    }
+    
+    public boolean desengataVagao(GaragemCarros gc){
+        boolean resposta = false;
+        if(vagaoEngatado){
+            if(getQuantVagoes() == 1){
+                vagaoEngatado = false;
+            }
+            Vagao vagao = (Vagao) carros.get(carros.size()-1);
+            vagao.setIdTrem(0);
+            this.capacidadeTotalPeso += vagao.getCapacidade();
+            this.capacidadeTotalVagoes += 1;
+            carros.remove(vagao);
+            gc.addCarro(vagao);
+            resposta = true;
+        }
+        return resposta;
     }
 
     public void desengataTudo(GaragemCarros gc){
-        int sizeC = carros.size();
+        int sizeC = getSize();
+        int sizeV = getQuantVagoes();
         for(int i = 0; i < sizeC; i++){
-            desengataCarro(gc);
+            if(sizeC<sizeV){
+                desengataVagao(gc);
+            }
+            else{
+                desengataLocomotiva(gc);
+            }
         }
     }
 

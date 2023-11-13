@@ -1,87 +1,84 @@
 package rocket.tfpoo;
 import java.io.*;
-import java.util.*;
 
 /**
  * Transforma o arquivo .csv em uma matriz manipulavel
  */
 public class Leitor{
-
-    private List<String[]> listaLinhas = new ArrayList<String[]>();
     private String linha;
-    private final String[][] matrizString;
-    private int tamLinha, tamColuna;
-
+    private GaragemCarros gc;
+    private Patio patio;
     /**
-     * Acessa o arquivo .csv e constrói uma matriz
-     * @param str
+     * Acessa os arquivos .csv 
      */
-    public Leitor(String str){
-        if(str.equals("C")){
-            try(BufferedReader data = new BufferedReader(new FileReader("composicao.csv"))){
-                while((linha = data.readLine()) != null){
-                    String[] itensLinha = linha.split(",");
-                    listaLinhas.add(itensLinha);
-                    tamColuna = itensLinha.length;
-                    if(tamColuna!=2){
-                        System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo composicao.csv");
-                        System.exit(0);
-                    }
-                    tamLinha++;
+    public Leitor(GaragemCarros gc, Patio patio){
+        this.gc = gc;
+        this.patio = patio;
+    }
+    public void function(){
+        try(BufferedReader dataC = new BufferedReader(new FileReader("composicao.csv"))){
+            while((linha = dataC.readLine()) != null){
+                String[] itensLinha = linha.split(",");
+                if(itensLinha.length !=2){
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo composicao.csv");
+                    System.exit(0);
                 }
-                data.close();
-            }catch(Exception e){
-                System.out.println(e);
             }
-
-        }else if(str.equals("L")){
-            try(BufferedReader data = new BufferedReader(new FileReader("locomotiva.csv"))){
-                while((linha = data.readLine()) != null){
-                    String[] itensLinha = linha.split(",");
-                    listaLinhas.add(itensLinha);
-                    tamColuna = itensLinha.length;
-                    if(tamColuna != 3) {
-                        System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo locomotiva.csv");
-                        System.exit(0);
-                    }
-                    tamLinha++;
-                }
-                data.close();
-            }catch(Exception e){
-                System.out.println(e);
-            }
-
-        }else if(str.equals("V")){
-            try(BufferedReader data = new BufferedReader(new FileReader("vagoes.csv"))){
-                while((linha = data.readLine()) != null){
-                    String[] itensLinha = linha.split(",");
-                    listaLinhas.add(itensLinha);
-                    tamColuna = itensLinha.length;
-                    if(tamColuna != 2){
-                        System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo vagao.csv");
-                        System.exit(0);
-                    }
-                    tamLinha++;
-                }
-                data.close();
-            }catch(Exception e){
-                System.out.println(e);
-            }
+            dataC.close();
+        }catch(Exception e){
+            System.out.println(e);
         }
 
-        matrizString = new String[tamLinha][tamColuna];
-
-        for(int i = 0; i < tamLinha; i++){
-            for(int j = 0; j < tamColuna; j++){
-                matrizString[i][j] = listaLinhas.get(i)[j];
+        try(BufferedReader dataL = new BufferedReader(new FileReader("locomotiva.csv"))){
+            double maxPeso;
+            int maxVagoes;
+            int idL;
+            while((linha = dataL.readLine()) != null){
+                String[] itensLinha = linha.split(",");
+                if(itensLinha.length != 3) {
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo locomotiva.csv");
+                    System.exit(0);
+                }else{
+                    try {
+                        idL = Integer.parseInt(itensLinha[0]);
+                        maxPeso = Double.parseDouble(itensLinha[1]);
+                        maxVagoes = Integer.parseInt(itensLinha[2]);
+                        Locomotiva locomotiva = new Locomotiva(idL, maxPeso, maxVagoes);
+                        gc.addCarro(locomotiva);
+                    } catch (Exception e) {
+                        System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo locomotiva.csv");
+                        System.exit(0);
+                    }
+                }
             }
+        dataL.close();
+        }catch(Exception e){
+            System.out.println(e);
         }
-    }
-    public int getTamColuna(){
-        return tamColuna;
-    }
 
-    public String[][] getMatriz(){
-        return matrizString;
+        try(BufferedReader data = new BufferedReader(new FileReader("vagoes.csv"))){
+            while((linha = data.readLine()) != null){
+                String[] itensLinha = linha.split(",");
+                if(itensLinha.length != 2){
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo vagao.csv");
+                    System.exit(0);
+                }else{
+                    int idV = 0;
+                double capacidade = 0.0; 
+                try {
+                    idV = Integer.parseInt(linha[0]);
+                    capacidade = Double.parseDouble(linha[1]); 
+                } catch (Exception e) {
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo vagao.csv");
+                    System.exit(0);
+                }
+                Vagao vagao = new Vagao(idV, capacidade);
+                gc.addCarro(vagao);
+                }
+            }
+            data.close();
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

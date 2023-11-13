@@ -1,20 +1,14 @@
 package rocket.tfpoo;
 import java.util.*;
 /**
- *
  * @author e.patricio
  */
 public class Tfpoo {
 
      public static void iniciaCsv(Patio patio, GaragemCarros gc){
         try {
-            Leitor leitorC = new Leitor("C");
-            Leitor leitorL = new Leitor("L");
-            Leitor leitorV = new Leitor("V");
-
-            String[][] matrizC = leitorC.getMatriz();
-            String[][] matrizL = leitorL.getMatriz();
-            String[][] matrizV = leitorV.getMatriz();
+            Leitor leitor = new Leitor(gc);
+            leitor.function();
 
             for (String[] linha : matrizL) {
                 if (linha == matrizL[0]) continue; // Pula a primeira linha do arquivo
@@ -87,7 +81,8 @@ public class Tfpoo {
         GaragemCarros gc = new GaragemCarros();
         int escolhaMenu = -1;
         int tremId, id;
-        iniciaCsv(patio, gc);
+        Leitor leitor = new Leitor(gc,patio);
+        leitor.function();
         System.out.println("Bem-vindo ao sistema de trens =)");
 
         do{
@@ -152,7 +147,7 @@ public class Tfpoo {
                         }
                         Locomotiva locoadd = (Locomotiva) gc.getCarro(id);
                         Trem tremadd = patio.getTrem(tremId);
-                        boolean engatado = tremadd.engataCarro(locoadd,gc);
+                        boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
                         if(engatado == true) {
                             System.out.println("Locomotiva adicionada com sucesso! =)");
                         }
@@ -175,7 +170,7 @@ public class Tfpoo {
                         }
                         Vagao vagaoAdd = (Vagao) gc.getCarro(id);
                         Trem tremadd = patio.getTrem(tremId);
-                        boolean engatado = tremadd.engataCarro(vagaoAdd, gc);
+                        boolean engatado = tremadd.engataVagao(vagaoAdd, gc);
                         if(engatado == true) {
                             System.out.println("Vagão adicionado com sucesso! =)");
                         }
@@ -191,11 +186,16 @@ public class Tfpoo {
                             tremId = scanner.nextInt();
                         }
                         Trem tremadd = patio.getTrem(tremId);
-                        if(tremadd.getQuantLocomotiva()<2){
+                        if(tremadd.getQuantLocomotivas()<2){
                             System.out.println("Não é possível retirar o último elemento do trem. =(");
                         }
                         else{
-                            tremadd.desengataCarro(gc);
+                            if(tremadd.getCarroByPos(tremadd.getSize()-1) instanceof Locomotiva){
+                                tremadd.desengataLocomotiva(gc);
+                            }
+                            else{
+                               tremadd.desengataVagao(gc); 
+                            }
                             System.out.println("Elemento removido com sucesso! =)");
                         }
                     }
