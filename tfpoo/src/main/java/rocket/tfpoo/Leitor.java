@@ -16,19 +16,6 @@ public class Leitor{
         this.patio = patio;
     }
     public void function(){
-        try(BufferedReader dataC = new BufferedReader(new FileReader("composicao.csv"))){
-            while((linha = dataC.readLine()) != null){
-                String[] itensLinha = linha.split(",");
-                if(itensLinha.length !=2){
-                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo composicao.csv");
-                    System.exit(0);
-                }
-            }
-            dataC.close();
-        }catch(Exception e){
-            System.out.println(e);
-        }
-
         try(BufferedReader dataL = new BufferedReader(new FileReader("locomotiva.csv"))){
             double maxPeso;
             int maxVagoes;
@@ -56,29 +43,66 @@ public class Leitor{
             System.out.println(e);
         }
 
-        try(BufferedReader data = new BufferedReader(new FileReader("vagoes.csv"))){
-            while((linha = data.readLine()) != null){
+        try(BufferedReader dataV = new BufferedReader(new FileReader("vagoes.csv"))){
+           int idV = 0;
+           double capacidade = 0;
+           while((linha = dataV.readLine()) != null){
+               String[] itensLinha = linha.split(",");
+               if(itensLinha.length != 2){
+                   System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo vagao.csv");
+                   System.exit(0);
+               }else{ 
+                   try {
+                       idV = Integer.parseInt(itensLinha[0]);
+                       capacidade = Double.parseDouble(itensLinha[1]); 
+                   } catch (Exception e) {
+                       System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo vagao.csv");
+                       System.exit(0);
+                   }
+                   Vagao vagao = new Vagao(idV, capacidade);
+                   gc.addCarro(vagao);
+               }
+           }
+           dataV.close();
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       try(BufferedReader dataC = new BufferedReader(new FileReader("composicao.csv"))){
+            while((linha = dataC.readLine()) != null){
                 String[] itensLinha = linha.split(",");
-                if(itensLinha.length != 2){
-                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo vagao.csv");
+                if(itensLinha.length !=2){
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo composicao.csv");
                     System.exit(0);
                 }else{
-                    int idV = 0;
-                double capacidade = 0.0; 
+                    int compId = 0; // ID do trem
+                int locomotivaId = 0; // ID da locomotiva
                 try {
-                    idV = Integer.parseInt(linha[0]);
-                    capacidade = Double.parseDouble(linha[1]); 
+                    compId = Integer.parseInt(itensLinha[0]); // ID do trem
+                    locomotivaId = Integer.parseInt(itensLinha[1]); // ID da locomotiva
                 } catch (Exception e) {
-                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo vagao.csv");
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo composicao.csv");
                     System.exit(0);
                 }
-                Vagao vagao = new Vagao(idV, capacidade);
-                gc.addCarro(vagao);
+                if(gc.verificaIdCarro(locomotivaId) == false){
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'locomotiva' inválida no arquivo composicao.csv");
+                    System.exit(0);
+                }
+                if(patio.verificaIdTrem(compId) == true){
+                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'id' inválida no arquivo composicao.csv");
+                    System.exit(0);
+                }
+                for (Carro c : gc.garagemCarro) {
+                    if (c.getId() == locomotivaId) {
+                        Trem t = new Trem(compId, (Locomotiva) c, gc);
+                        patio.addTrem(t);
+                        break;
+                    }
+                }
                 }
             }
-            data.close();
+            dataC.close();
         }catch(Exception e){
             System.out.println(e);
         }
-    }
+   }
 }
