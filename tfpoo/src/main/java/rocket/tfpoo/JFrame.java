@@ -9,6 +9,8 @@ package rocket.tfpoo;
  * @author yasmi
  */
 public class JFrame extends javax.swing.JFrame {
+    private GaragemCarros gc;
+    private Patio patio;
 
     /**
      * Creates new form JFrame
@@ -32,6 +34,12 @@ public class JFrame extends javax.swing.JFrame {
         ButtonEditar = new javax.swing.JButton();
         ButtonListar = new javax.swing.JButton();
         ButtonCriar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuCriarTrem = new javax.swing.JMenuItem();
+        menuListarTrens = new javax.swing.JMenuItem();
+        menuEditarTrem = new javax.swing.JMenuItem();
+        menuDesfazerTrem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,8 +124,47 @@ public class JFrame extends javax.swing.JFrame {
                 .addComponent(ButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ButonDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("Menu");
+
+        menuCriarTrem.setText("Criar trem");
+        menuCriarTrem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCriarTremActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuCriarTrem);
+
+        menuListarTrens.setText("Listar trens");
+        menuListarTrens.setToolTipText("Lista os trens cadastrados no sistema");
+        menuListarTrens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuListarTrensActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuListarTrens);
+
+        menuEditarTrem.setText("Editar trem");
+        menuEditarTrem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarTremActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuEditarTrem);
+
+        menuDesfazerTrem.setText("Desfazer trem");
+        menuDesfazerTrem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDesfazerTremActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuDesfazerTrem);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,23 +180,45 @@ public class JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCriarActionPerformed
-        JFrameCriarTrem criarTrem = new JFrameCriarTrem();
-        criarTrem.setVisible(true);
-    }//GEN-LAST:event_ButtonCriarActionPerformed
-
-    private void ButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonEditarActionPerformed
-
     private void ButonDesfazerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonDesfazerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButonDesfazerActionPerformed
+
+    private void ButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarActionPerformed
+        JFrameEditarTrem criarTrem = new JFrameEditarTrem();
+        criarTrem.setVisible(true);
+        criarTrem.infoCollector(gc, patio);
+    }//GEN-LAST:event_ButtonEditarActionPerformed
 
     private void ButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonListarActionPerformed
 
+    private void ButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCriarActionPerformed
+
+    }//GEN-LAST:event_ButtonCriarActionPerformed
+
+    private void menuCriarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCriarTremActionPerformed
+        
+    }//GEN-LAST:event_menuCriarTremActionPerformed
+
+    private void menuListarTrensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarTrensActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuListarTrensActionPerformed
+
+    private void menuEditarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarTremActionPerformed
+        JFrameEditarTrem criarTrem = new JFrameEditarTrem();
+        criarTrem.setVisible(true);
+    }//GEN-LAST:event_menuEditarTremActionPerformed
+
+    private void menuDesfazerTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDesfazerTremActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuDesfazerTremActionPerformed
+    
+    public void infoCollector(GaragemCarros gc, Patio patio){
+        this.gc = gc;
+        this.patio = patio;
+    }
     /**
      * @param args the command line arguments
      */
@@ -160,6 +229,12 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonEditar;
     private javax.swing.JButton ButtonListar;
     private javax.swing.JLabel LabelNomeSistema;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menuCriarTrem;
+    private javax.swing.JMenuItem menuDesfazerTrem;
+    private javax.swing.JMenuItem menuEditarTrem;
+    private javax.swing.JMenuItem menuListarTrens;
     // End of variables declaration//GEN-END:variables
 }
