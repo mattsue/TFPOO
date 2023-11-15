@@ -91,6 +91,6 @@ public class Locomotiva extends Carro{
      */
     @Override
     public String toString() {
-        return super.toString() + "Locomotiva, Capacidade = " + maxPeso + ", Máximo de Vagões = " + maxVagoes + "]";
+        return super.toString() + "Locomotiva / Capacidade: " + maxPeso + " / Máximo de Vagões: " + maxVagoes + ")";
     }
 }

@@ -26,6 +26,6 @@ public abstract class Carro {
     }
 
     public String toString(){
-        return "Carro [" + id + ", Tipo: ";
+        return "Carro [" + id + "]" + " (Tipo: ";
     }
 }
