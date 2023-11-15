@@ -33,8 +33,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         buttonAdicionarLocomotiva = new javax.swing.JButton();
         labelLocomotiva = new javax.swing.JLabel();
         labelTrem = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        labelInsert = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
 
@@ -67,8 +66,8 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTrem)
                     .addComponent(labelLocomotiva))
@@ -78,14 +77,21 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
                     .addComponent(comboTrem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(140, 140, 140))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(322, 322, 322)
-                .addComponent(buttonAdicionarLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(322, 322, 322)
+                        .addComponent(buttonAdicionarLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
+                .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTrem)
                     .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,7 +119,18 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAdicionarLocomotivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarLocomotivaActionPerformed
-
+        String selected = comboLocomotiva.getSelectedItem().toString();
+        String id = selected.substring(12, selected.length());
+        int idLocomotiva = Integer.parseInt(id);
+        selected = comboTrem.getSelectedItem().toString();
+        id = selected.substring(6, selected.length());
+        int idTrem = Integer.parseInt(id);
+        Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
+        Trem tremadd = patio.getTrem(idTrem);
+        boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
+        if(engatado){
+            labelInsert.setText("Locomotiva inserida com sucesso");
+        }
     }//GEN-LAST:event_buttonAdicionarLocomotivaActionPerformed
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
@@ -125,7 +142,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
             }
         }
         for(Trem t:patio.trens){
-            if(t.getQuantVagoes() < 0){
+            if(t.getQuantVagoes() == 0){
                 String item = "Trem: "+t.getId();
                 comboTrem.addItem(item);
             }
@@ -140,6 +157,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboLocomotiva;
     private javax.swing.JComboBox<String> comboTrem;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelInsert;
     private javax.swing.JLabel labelLocomotiva;
     private javax.swing.JLabel labelTrem;
     // End of variables declaration//GEN-END:variables
