@@ -8,13 +8,13 @@ package rocket.tfpoo;
  *
  * @author yasmi
  */
-public class JFrameInserirLocomotiva extends javax.swing.JFrame {
+public class JFrameInserirVagao extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
     /**
-     * Creates new form JFrameInserirLocomotiva
+     * Creates new form JFrameInserirVagao
      */
-    public JFrameInserirLocomotiva() {
+    public JFrameInserirVagao() {
         initComponents();
     }
 
@@ -29,9 +29,9 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         comboTrem = new javax.swing.JComboBox<>();
-        comboLocomotiva = new javax.swing.JComboBox<>();
-        buttonAdicionarLocomotiva = new javax.swing.JButton();
-        labelLocomotiva = new javax.swing.JLabel();
+        comboVagao = new javax.swing.JComboBox<>();
+        buttonAdicionarVagao = new javax.swing.JButton();
+        labelVagao = new javax.swing.JLabel();
         labelTrem = new javax.swing.JLabel();
         labelInsert = new javax.swing.JLabel();
 
@@ -41,24 +41,24 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
 
         comboTrem.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
 
-        comboLocomotiva.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        comboLocomotiva.setToolTipText("");
+        comboVagao.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
+        comboVagao.setToolTipText("");
 
-        buttonAdicionarLocomotiva.setBackground(new java.awt.Color(255, 153, 153));
-        buttonAdicionarLocomotiva.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        buttonAdicionarLocomotiva.setForeground(new java.awt.Color(255, 255, 249));
-        buttonAdicionarLocomotiva.setText("Adicionar");
-        buttonAdicionarLocomotiva.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonAdicionarLocomotiva.setDefaultCapable(false);
-        buttonAdicionarLocomotiva.addActionListener(new java.awt.event.ActionListener() {
+        buttonAdicionarVagao.setBackground(new java.awt.Color(255, 153, 153));
+        buttonAdicionarVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        buttonAdicionarVagao.setForeground(new java.awt.Color(255, 255, 249));
+        buttonAdicionarVagao.setText("Adicionar");
+        buttonAdicionarVagao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonAdicionarVagao.setDefaultCapable(false);
+        buttonAdicionarVagao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAdicionarLocomotivaActionPerformed(evt);
+                buttonAdicionarVagaoActionPerformed(evt);
             }
         });
 
-        labelLocomotiva.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        labelLocomotiva.setForeground(new java.awt.Color(255, 255, 249));
-        labelLocomotiva.setText("Escolha uma locomotiva");
+        labelVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        labelVagao.setForeground(new java.awt.Color(255, 255, 249));
+        labelVagao.setText("Escolha uma locomotiva");
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         labelTrem.setForeground(new java.awt.Color(255, 255, 249));
@@ -72,10 +72,10 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTrem)
-                    .addComponent(labelLocomotiva))
+                    .addComponent(labelVagao))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboLocomotiva, 0, 250, Short.MAX_VALUE)
+                    .addComponent(comboVagao, 0, 250, Short.MAX_VALUE)
                     .addComponent(comboTrem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(140, 140, 140))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -85,7 +85,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
                         .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(buttonAdicionarLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonAdicionarVagao, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -93,16 +93,16 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTrem)
                     .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelLocomotiva)
-                    .addComponent(comboLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelVagao)
+                    .addComponent(comboVagao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99)
-                .addComponent(buttonAdicionarLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAdicionarVagao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(151, 151, 151))
         );
 
@@ -116,35 +116,37 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAdicionarLocomotivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarLocomotivaActionPerformed
-        String selected = comboLocomotiva.getSelectedItem().toString();
-        String id = selected.substring(12, selected.length());
-        int idLocomotiva = Integer.parseInt(id);
+    private void buttonAdicionarVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarVagaoActionPerformed
+        String selected = comboVagao.getSelectedItem().toString();
+        String id = selected.substring(7, selected.length());
+        int idVagao = Integer.parseInt(id);
         selected = comboTrem.getSelectedItem().toString();
         id = selected.substring(6, selected.length());
         int idTrem = Integer.parseInt(id);
-        Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
+        Vagao vagaoadd = (Vagao)gc.getCarro(idVagao);
         Trem tremadd = patio.getTrem(idTrem);
-        boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
+        boolean engatado = tremadd.engataVagao(vagaoadd,gc);
         if(engatado){
-            labelInsert.setText("Locomotiva inserida com sucesso");
+            labelInsert.setText("Vagão inserido com sucesso");
+            int index = comboVagao.getSelectedIndex();
+            comboVagao.removeItemAt(index);
+        }else{
+          labelInsert.setText("Vagão pesado demais para o trem selecionado");  
         }
-        int index = comboLocomotiva.getSelectedIndex();
-        comboLocomotiva.removeItemAt(index);
-    }//GEN-LAST:event_buttonAdicionarLocomotivaActionPerformed
+    }//GEN-LAST:event_buttonAdicionarVagaoActionPerformed
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
         for(Carro c:gc.garagemCarro){
-            if(c instanceof Locomotiva){
-                String item = "Locomotiva: "+c.id;
-                comboLocomotiva.addItem(item);
+            if(c instanceof Vagao){
+                String item = "Vagão: "+c.id;
+                comboVagao.addItem(item);
             }
         }
         for(Trem t:patio.trens){
@@ -154,14 +156,13 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
             }
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdicionarLocomotiva;
-    private javax.swing.JComboBox<String> comboLocomotiva;
+    private javax.swing.JButton buttonAdicionarVagao;
     private javax.swing.JComboBox<String> comboTrem;
+    private javax.swing.JComboBox<String> comboVagao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelInsert;
-    private javax.swing.JLabel labelLocomotiva;
     private javax.swing.JLabel labelTrem;
+    private javax.swing.JLabel labelVagao;
     // End of variables declaration//GEN-END:variables
 }

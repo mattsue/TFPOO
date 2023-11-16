@@ -35,6 +35,8 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
         buttonOptionListarVagoes = new javax.swing.JButton();
         labelMenuEdicao = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
 
         buttonOptionInserirLocomotiva.setBackground(new java.awt.Color(255, 153, 153));
@@ -166,7 +168,9 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonOptionRemoverCarroActionPerformed
 
     private void buttonOptionInserirVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionInserirVagaoActionPerformed
-        // TODO add your handling code here:
+        JFrameInserirVagao jfVagao = new JFrameInserirVagao();
+        jfVagao.infoCollector(gc,patio);
+        jfVagao.setVisible(true);
     }//GEN-LAST:event_buttonOptionInserirVagaoActionPerformed
 
     private void buttonOptionListarLocomotivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionListarLocomotivasActionPerformed
