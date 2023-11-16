@@ -34,6 +34,8 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtTremSelecionado = new javax.swing.JTextField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
