@@ -164,7 +164,9 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonOptionInserirLocomotivaActionPerformed
 
     private void buttonOptionRemoverCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionRemoverCarroActionPerformed
-        // TODO add your handling code here:
+        JFrameRemoveUltimo jfUltimo = new JFrameRemoveUltimo();
+        jfUltimo.infoCollector(gc,patio);
+        jfUltimo.setVisible(true);
     }//GEN-LAST:event_buttonOptionRemoverCarroActionPerformed
 
     private void buttonOptionInserirVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionInserirVagaoActionPerformed
@@ -174,11 +176,15 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonOptionInserirVagaoActionPerformed
 
     private void buttonOptionListarLocomotivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionListarLocomotivasActionPerformed
-        // TODO add your handling code here:
+        JFrameListarLocomotivas jfLoco = new JFrameListarLocomotivas();
+        jfLoco .infoCollector(gc,patio);
+        jfLoco .setVisible(true);
     }//GEN-LAST:event_buttonOptionListarLocomotivasActionPerformed
 
     private void buttonOptionListarVagoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOptionListarVagoesActionPerformed
-        // TODO add your handling code here:
+        JFrameListarVagoes jfVagoes = new JFrameListarVagoes();
+        jfVagoes .infoCollector(gc,patio);
+        jfVagoes .setVisible(true);
     }//GEN-LAST:event_buttonOptionListarVagoesActionPerformed
 
     public void infoCollector(GaragemCarros gc, Patio patio){

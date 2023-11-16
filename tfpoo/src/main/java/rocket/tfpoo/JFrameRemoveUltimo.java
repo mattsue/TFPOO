@@ -8,13 +8,13 @@ package rocket.tfpoo;
  *
  * @author yasmi
  */
-public class JFrameInserirVagao extends javax.swing.JFrame {
+public class JFrameRemoveUltimo extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
     /**
-     * Creates new form JFrameInserirVagao
+     * Creates new form JFrameRemoveUltimo
      */
-    public JFrameInserirVagao() {
+    public JFrameRemoveUltimo() {
         initComponents();
     }
 
@@ -29,9 +29,7 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         comboTrem = new javax.swing.JComboBox<>();
-        comboVagao = new javax.swing.JComboBox<>();
-        buttonAdicionarVagao = new javax.swing.JButton();
-        labelVagao = new javax.swing.JLabel();
+        removerUltimo = new javax.swing.JButton();
         labelTrem = new javax.swing.JLabel();
         labelInsert = new javax.swing.JLabel();
 
@@ -41,24 +39,17 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
 
         comboTrem.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
 
-        comboVagao.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
-        comboVagao.setToolTipText("");
-
-        buttonAdicionarVagao.setBackground(new java.awt.Color(255, 153, 153));
-        buttonAdicionarVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        buttonAdicionarVagao.setForeground(new java.awt.Color(255, 255, 249));
-        buttonAdicionarVagao.setText("Adicionar");
-        buttonAdicionarVagao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonAdicionarVagao.setDefaultCapable(false);
-        buttonAdicionarVagao.addActionListener(new java.awt.event.ActionListener() {
+        removerUltimo.setBackground(new java.awt.Color(255, 153, 153));
+        removerUltimo.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        removerUltimo.setForeground(new java.awt.Color(255, 255, 249));
+        removerUltimo.setText("Remover ultimo carro");
+        removerUltimo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        removerUltimo.setDefaultCapable(false);
+        removerUltimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAdicionarVagaoActionPerformed(evt);
+                removerUltimoActionPerformed(evt);
             }
         });
-
-        labelVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        labelVagao.setForeground(new java.awt.Color(255, 255, 249));
-        labelVagao.setText("Escolha uma locomotiva");
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         labelTrem.setForeground(new java.awt.Color(255, 255, 249));
@@ -68,42 +59,33 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTrem)
-                    .addComponent(labelVagao))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboVagao, 0, 250, Short.MAX_VALUE)
-                    .addComponent(comboTrem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(140, 140, 140))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(279, 279, 279)
                         .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(buttonAdicionarVagao, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                        .addGap(230, 230, 230)
+                        .addComponent(removerUltimo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(labelTrem)
+                        .addGap(36, 36, 36)
+                        .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTrem)
                     .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelVagao)
-                    .addComponent(comboVagao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99)
-                .addComponent(buttonAdicionarVagao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
+                .addGap(113, 113, 113)
+                .addComponent(removerUltimo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,45 +104,39 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAdicionarVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarVagaoActionPerformed
-        String selected = comboVagao.getSelectedItem().toString();
-        String id = selected.substring(7, selected.length());
-        int idVagao = Integer.parseInt(id);
-        selected = comboTrem.getSelectedItem().toString();
-        id = selected.substring(6, selected.length());
+    private void removerUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerUltimoActionPerformed
+        String selected = comboTrem.getSelectedItem().toString();
+        String id = selected.substring(6, selected.length());
         int idTrem = Integer.parseInt(id);
-        Vagao vagaoadd = (Vagao)gc.getCarro(idVagao);
         Trem tremadd = patio.getTrem(idTrem);
-        boolean engatado = tremadd.engataVagao(vagaoadd,gc);
-        if(engatado){
-            labelInsert.setText("Vagão inserido com sucesso");
-            int index = comboVagao.getSelectedIndex();
-            comboVagao.removeItemAt(index);
+        if(tremadd.getCarroByPos(tremadd.getSize()-1) instanceof Locomotiva){
+            tremadd.desengataLocomotiva(gc);
         }else{
-          labelInsert.setText("Vagão pesado demais para o trem selecionado");  
+            tremadd.desengataVagao(gc); 
         }
-    }//GEN-LAST:event_buttonAdicionarVagaoActionPerformed
+        if(tremadd.getSize()==1){
+            int index = comboTrem.getSelectedIndex();
+            comboTrem.removeItemAt(index);
+        }
+        labelInsert.setText("Carro retirado com sucesso");
+    }//GEN-LAST:event_removerUltimoActionPerformed
+
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
-        for(Carro c:gc.garagemCarro){
-            if(c instanceof Vagao){
-                String item = "Vagão: "+c.id;
-                comboVagao.addItem(item);
+        for(Trem t:patio.trens){
+            if(t.getSize()>1){
+             String item = "Trem: "+t.getId();
+             comboTrem.addItem(item);   
             }
         }
-        for(Trem t:patio.trens){
-            String item = "Trem: "+t.getId();
-            comboTrem.addItem(item);
-        }
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdicionarVagao;
     private javax.swing.JComboBox<String> comboTrem;
-    private javax.swing.JComboBox<String> comboVagao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelInsert;
     private javax.swing.JLabel labelTrem;
-    private javax.swing.JLabel labelVagao;
+    private javax.swing.JButton removerUltimo;
     // End of variables declaration//GEN-END:variables
 }
