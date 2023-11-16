@@ -29,9 +29,9 @@ public class JFrameListarTrens extends javax.swing.JFrame {
             for(int i =0; i < t.getSize(); i++){
                 Carro c = t.getCarroByPos(i);
                 if(c instanceof Vagao){
-                    vagoes += " Vagão "+ c.getId();
+                    vagoes += " V"+ c.getId();
                 }else{
-                    locos += " Locomotiva "+ c.getId();
+                    locos += " L"+ c.getId();
                 }
             }
             Object[] trem = new Object[]{t.getId(),locos,vagoes};
@@ -52,7 +52,7 @@ public class JFrameListarTrens extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableTrens = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
 

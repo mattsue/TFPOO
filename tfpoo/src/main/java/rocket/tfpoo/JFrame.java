@@ -191,7 +191,9 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEditarActionPerformed
 
     private void ButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListarActionPerformed
-        // TODO add your handling code here:
+        JFrameListarTrens listar = new JFrameListarTrens();
+        listar.setVisible(true);
+        listar.infoCollector(gc, patio);
     }//GEN-LAST:event_ButtonListarActionPerformed
 
     private void ButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCriarActionPerformed
@@ -203,12 +205,15 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCriarTremActionPerformed
 
     private void menuListarTrensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarTrensActionPerformed
-        // TODO add your handling code here:
+        JFrameListarTrens listar = new JFrameListarTrens();
+        listar.setVisible(true);
+        listar.infoCollector(gc, patio);
     }//GEN-LAST:event_menuListarTrensActionPerformed
 
     private void menuEditarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarTremActionPerformed
         JFrameEditarTrem criarTrem = new JFrameEditarTrem();
         criarTrem.setVisible(true);
+        criarTrem.infoCollector(gc, patio);
     }//GEN-LAST:event_menuEditarTremActionPerformed
 
     private void menuDesfazerTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDesfazerTremActionPerformed
