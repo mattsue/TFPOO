@@ -27,13 +27,11 @@ public class JFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         LabelNomeSistema = new javax.swing.JLabel();
-        ButonDesfazer = new javax.swing.JButton();
-        ButtonEditar = new javax.swing.JButton();
-        ButtonListar = new javax.swing.JButton();
-        ButtonCriar = new javax.swing.JButton();
+        iconRocket = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCriarTrem = new javax.swing.JMenuItem();
@@ -44,88 +42,26 @@ public class JFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         LabelNomeSistema.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
         LabelNomeSistema.setForeground(new java.awt.Color(255, 255, 249));
-        LabelNomeSistema.setText("Sistema de gerenciamento de trens");
+        LabelNomeSistema.setText("Sisteminha de Trens!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(91, 191, 0, 178);
+        jPanel1.add(LabelNomeSistema, gridBagConstraints);
 
-        ButonDesfazer.setBackground(new java.awt.Color(255, 153, 153));
-        ButonDesfazer.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        ButonDesfazer.setForeground(new java.awt.Color(255, 255, 249));
-        ButonDesfazer.setText("Desfazer trem");
-        ButonDesfazer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        ButonDesfazer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButonDesfazerActionPerformed(evt);
-            }
-        });
-
-        ButtonEditar.setBackground(new java.awt.Color(255, 153, 153));
-        ButtonEditar.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        ButtonEditar.setForeground(new java.awt.Color(255, 255, 249));
-        ButtonEditar.setText("Editar trem");
-        ButtonEditar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        ButtonEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEditarActionPerformed(evt);
-            }
-        });
-
-        ButtonListar.setBackground(new java.awt.Color(255, 153, 153));
-        ButtonListar.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        ButtonListar.setForeground(new java.awt.Color(255, 255, 249));
-        ButtonListar.setText("Listar trens");
-        ButtonListar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        ButtonListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonListarActionPerformed(evt);
-            }
-        });
-
-        ButtonCriar.setBackground(new java.awt.Color(255, 153, 153));
-        ButtonCriar.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        ButtonCriar.setForeground(new java.awt.Color(255, 255, 249));
-        ButtonCriar.setText("Criar Trem");
-        ButtonCriar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        ButtonCriar.setDefaultCapable(false);
-        ButtonCriar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCriarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonListar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButonDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(LabelNomeSistema)
-                .addGap(64, 64, 64))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(LabelNomeSistema)
-                .addGap(67, 67, 67)
-                .addComponent(ButtonCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ButtonListar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ButonDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        iconRocket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equiperocket3x2.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 245, 75, 0);
+        jPanel1.add(iconRocket, gridBagConstraints);
 
         jMenu1.setText("Menu");
 
@@ -180,48 +116,28 @@ public class JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButonDesfazerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonDesfazerActionPerformed
-        JFrameDesfazerTrem desfaz = new JFrameDesfazerTrem();
-        desfaz.setVisible(true);
-        desfaz.infoCollector(gc, patio);
-    }//GEN-LAST:event_ButonDesfazerActionPerformed
-
-    private void ButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarActionPerformed
-        JFrameEditarTrem criarTrem = new JFrameEditarTrem();
+    private void menuCriarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCriarTremActionPerformed
+        JFrameCriarTrem criarTrem = new JFrameCriarTrem();
         criarTrem.setVisible(true);
         criarTrem.infoCollector(gc, patio);
-    }//GEN-LAST:event_ButtonEditarActionPerformed
-
-    private void ButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListarActionPerformed
-        JFrameListarTrens listar = new JFrameListarTrens();
-        listar.setVisible(true);
-        listar.infoCollector(gc, patio);
-    }//GEN-LAST:event_ButtonListarActionPerformed
-
-    private void ButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCriarActionPerformed
-
-    }//GEN-LAST:event_ButtonCriarActionPerformed
-
-    private void menuCriarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCriarTremActionPerformed
-        
     }//GEN-LAST:event_menuCriarTremActionPerformed
 
     private void menuListarTrensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarTrensActionPerformed
-        JFrameListarTrens listar = new JFrameListarTrens();
-        listar.setVisible(true);
-        listar.infoCollector(gc, patio);
+        JFrameListarTrens listarTrens = new JFrameListarTrens();
+        listarTrens.setVisible(true);
+        listarTrens.infoCollector(gc, patio);
     }//GEN-LAST:event_menuListarTrensActionPerformed
 
     private void menuEditarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarTremActionPerformed
-        JFrameEditarTrem criarTrem = new JFrameEditarTrem();
-        criarTrem.setVisible(true);
-        criarTrem.infoCollector(gc, patio);
+        JFrameEditarTrem editarTrem = new JFrameEditarTrem();
+        editarTrem.setVisible(true);
+        editarTrem.infoCollector(gc, patio);
     }//GEN-LAST:event_menuEditarTremActionPerformed
 
     private void menuDesfazerTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDesfazerTremActionPerformed
-        JFrameDesfazerTrem desfaz = new JFrameDesfazerTrem();
-        desfaz.setVisible(true);
-        desfaz.infoCollector(gc, patio);
+        JFrameDesfazerTrem desfazTrem = new JFrameDesfazerTrem();
+        desfazTrem.setVisible(true);
+        desfazTrem.infoCollector(gc, patio);
     }//GEN-LAST:event_menuDesfazerTremActionPerformed
     
     public void infoCollector(GaragemCarros gc, Patio patio){
@@ -233,11 +149,8 @@ public class JFrame extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButonDesfazer;
-    private javax.swing.JButton ButtonCriar;
-    private javax.swing.JButton ButtonEditar;
-    private javax.swing.JButton ButtonListar;
     private javax.swing.JLabel LabelNomeSistema;
+    private javax.swing.JLabel iconRocket;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

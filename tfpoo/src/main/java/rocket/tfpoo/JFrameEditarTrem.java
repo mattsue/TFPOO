@@ -26,6 +26,7 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         buttonOptionInserirLocomotiva = new javax.swing.JButton();
@@ -38,6 +39,7 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 215, 204));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         buttonOptionInserirLocomotiva.setBackground(new java.awt.Color(255, 153, 153));
         buttonOptionInserirLocomotiva.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -50,6 +52,15 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
                 buttonOptionInserirLocomotivaActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 156;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 151, 0, 152);
+        jPanel1.add(buttonOptionInserirLocomotiva, gridBagConstraints);
 
         buttonOptionRemoverCarro.setBackground(new java.awt.Color(255, 153, 153));
         buttonOptionRemoverCarro.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -62,6 +73,15 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
                 buttonOptionRemoverCarroActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 113;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 151, 0, 152);
+        jPanel1.add(buttonOptionRemoverCarro, gridBagConstraints);
 
         buttonOptionInserirVagao.setBackground(new java.awt.Color(255, 153, 153));
         buttonOptionInserirVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -74,6 +94,15 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
                 buttonOptionInserirVagaoActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 217;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 151, 0, 152);
+        jPanel1.add(buttonOptionInserirVagao, gridBagConstraints);
 
         buttonOptionListarLocomotivas.setBackground(new java.awt.Color(255, 153, 153));
         buttonOptionListarLocomotivas.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -87,6 +116,15 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
                 buttonOptionListarLocomotivasActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 151, 65, 152);
+        jPanel1.add(buttonOptionListarLocomotivas, gridBagConstraints);
 
         buttonOptionListarVagoes.setBackground(new java.awt.Color(255, 153, 153));
         buttonOptionListarVagoes.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -99,46 +137,25 @@ public class JFrameEditarTrem extends javax.swing.JFrame {
                 buttonOptionListarVagoesActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 79;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 151, 0, 152);
+        jPanel1.add(buttonOptionListarVagoes, gridBagConstraints);
 
         labelMenuEdicao.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
         labelMenuEdicao.setForeground(new java.awt.Color(255, 255, 249));
-        labelMenuEdicao.setText("Menu de edição");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonOptionListarLocomotivas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOptionListarVagoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOptionRemoverCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOptionInserirVagao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOptionInserirLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(160, 160, 160))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(204, 204, 204)
-                .addComponent(labelMenuEdicao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(labelMenuEdicao)
-                .addGap(55, 55, 55)
-                .addComponent(buttonOptionInserirLocomotiva, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOptionInserirVagao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOptionRemoverCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOptionListarVagoes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOptionListarLocomotivas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
+        labelMenuEdicao.setText("Menu de Opções");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(64, 204, 0, 0);
+        jPanel1.add(labelMenuEdicao, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

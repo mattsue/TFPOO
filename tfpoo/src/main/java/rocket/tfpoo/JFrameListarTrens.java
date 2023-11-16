@@ -19,26 +19,28 @@ public class JFrameListarTrens extends javax.swing.JFrame {
     public JFrameListarTrens() {
         initComponents();
     }
-    public void infoCollector(GaragemCarros gc, Patio patio){
-        this.gc = gc;
-        this.patio = patio;
-        DefaultTableModel model = (DefaultTableModel) tableTrens.getModel();
+   public void infoCollector(GaragemCarros gc, Patio patio) {
+    this.gc = gc;
+    this.patio = patio;
+    DefaultTableModel model = (DefaultTableModel) tableTrens.getModel();
+
+    for (Trem t : patio.trens) {
         String locos = "";
-        String vagoes = "";
-        for(Trem t:patio.trens){
-            for(int i =0; i < t.getSize(); i++){
-                Carro c = t.getCarroByPos(i);
-                if(c instanceof Vagao){
-                    vagoes += " V"+ c.getId();
-                }else{
-                    locos += " L"+ c.getId();
-                }
+        String vagoes = ""; 
+
+        for (int i = 0; i < t.getSize(); i++) {
+            Carro c = t.getCarroByPos(i);
+            if (c instanceof Vagao) {
+                vagoes += " V" + c.getId();
+            } else {
+                locos += " L" + c.getId();
             }
-            Object[] trem = new Object[]{t.getId(),locos,vagoes};
-            model.addRow(trem);
-               
         }
+
+        Object[] trem = new Object[]{t.getId(), locos, vagoes};
+        model.addRow(trem);
     }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

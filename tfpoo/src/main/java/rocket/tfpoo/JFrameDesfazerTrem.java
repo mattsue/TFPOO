@@ -132,7 +132,7 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTrensActionPerformed
 
     private void txtTremSelecionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTremSelecionadoActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtTremSelecionadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -153,6 +153,7 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
             comboTrens.addItem(item);  
       }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboTrens;
     private javax.swing.JButton jButton1;

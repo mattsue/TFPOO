@@ -42,7 +42,7 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
         removerUltimo.setBackground(new java.awt.Color(255, 153, 153));
         removerUltimo.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         removerUltimo.setForeground(new java.awt.Color(255, 255, 249));
-        removerUltimo.setText("Remover ultimo carro");
+        removerUltimo.setText("Remover ");
         removerUltimo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         removerUltimo.setDefaultCapable(false);
         removerUltimo.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         labelTrem.setForeground(new java.awt.Color(255, 255, 249));
-        labelTrem.setText("Escolha um trem");
+        labelTrem.setText("Escolha um trem:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,27 +65,27 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
                         .addGap(279, 279, 279)
                         .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(removerUltimo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
+                        .addGap(115, 115, 115)
                         .addComponent(labelTrem)
-                        .addGap(36, 36, 36)
-                        .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(removerUltimo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(labelInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTrem)
                     .addComponent(comboTrem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(113, 113, 113)
+                .addGap(65, 65, 65)
                 .addComponent(removerUltimo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addGap(151, 151, 151))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,7 +131,8 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
             }
         }
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboTrem;
     private javax.swing.JPanel jPanel1;
