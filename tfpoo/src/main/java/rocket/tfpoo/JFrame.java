@@ -181,7 +181,9 @@ public class JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButonDesfazerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonDesfazerActionPerformed
-        // TODO add your handling code here:
+        JFrameDesfazerTrem desfaz = new JFrameDesfazerTrem();
+        desfaz.setVisible(true);
+        desfaz.infoCollector(gc, patio);
     }//GEN-LAST:event_ButonDesfazerActionPerformed
 
     private void ButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarActionPerformed
@@ -217,7 +219,9 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEditarTremActionPerformed
 
     private void menuDesfazerTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDesfazerTremActionPerformed
-        // TODO add your handling code here:
+        JFrameDesfazerTrem desfaz = new JFrameDesfazerTrem();
+        desfaz.setVisible(true);
+        desfaz.infoCollector(gc, patio);
     }//GEN-LAST:event_menuDesfazerTremActionPerformed
     
     public void infoCollector(GaragemCarros gc, Patio patio){
