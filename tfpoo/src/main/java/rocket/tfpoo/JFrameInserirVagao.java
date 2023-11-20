@@ -35,7 +35,6 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         buttonAdicionarVagao = new javax.swing.JButton();
         labelVagao = new javax.swing.JLabel();
         labelTrem = new javax.swing.JLabel();
-        labelInsert = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -45,24 +44,24 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         comboTrem.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 12, 0, 117);
+        gridBagConstraints.insets = new java.awt.Insets(163, 12, 0, 110);
         jPanel1.add(comboTrem, gridBagConstraints);
 
         comboVagao.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         comboVagao.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 12, 0, 117);
+        gridBagConstraints.insets = new java.awt.Insets(20, 12, 0, 110);
         jPanel1.add(comboVagao, gridBagConstraints);
 
         buttonAdicionarVagao.setBackground(new java.awt.Color(255, 153, 153));
@@ -78,12 +77,12 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 69;
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 256, 151, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 247, 168, 0);
         jPanel1.add(buttonAdicionarVagao, gridBagConstraints);
 
         labelVagao.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -91,9 +90,9 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         labelVagao.setText("Escolha um vagão:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 124, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 115, 0, 0);
         jPanel1.add(labelVagao, gridBagConstraints);
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -101,22 +100,10 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
         labelTrem.setText("Escolha um trem:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 139, 0, 0);
-        jPanel1.add(labelTrem, gridBagConstraints);
-
-        labelInsert.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        labelInsert.setForeground(new java.awt.Color(255, 153, 153));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 283;
-        gridBagConstraints.ipady = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(127, 245, 0, 0);
-        jPanel1.add(labelInsert, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(161, 130, 0, 0);
+        jPanel1.add(labelTrem, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,7 +111,7 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,22 +122,27 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAdicionarVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarVagaoActionPerformed
-        String selected = comboVagao.getSelectedItem().toString();
-        String id = selected.substring(7, selected.length());
-        int idVagao = Integer.parseInt(id);
-        selected = comboTrem.getSelectedItem().toString();
-        id = selected.substring(6, selected.length());
-        int idTrem = Integer.parseInt(id);
-        Vagao vagaoadd = (Vagao)gc.getCarro(idVagao);
-        Trem tremadd = patio.getTrem(idTrem);
-        boolean engatado = tremadd.engataVagao(vagaoadd,gc);
-        if(engatado){
-            labelInsert.setText("Vagão inserido com sucesso!");
-            int index = comboVagao.getSelectedIndex();
-            comboVagao.removeItemAt(index);
+        if(comboVagao.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Nenhum vagão disponível.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else if(comboTrem.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Nenhum trem disponível.", "Erro", JOptionPane.ERROR_MESSAGE);
         }else{
-          JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Vagão pesado demais para o trem selecionado.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
+            String selected = comboVagao.getSelectedItem().toString();
+            String id = selected.substring(7, selected.length());
+            int idVagao = Integer.parseInt(id);
+            selected = comboTrem.getSelectedItem().toString();
+            id = selected.substring(6, selected.length());
+            int idTrem = Integer.parseInt(id);
+            Vagao vagaoadd = (Vagao)gc.getCarro(idVagao);
+            Trem tremadd = patio.getTrem(idTrem);
+            boolean engatado = tremadd.engataVagao(vagaoadd,gc);
+            if(engatado){
+                int index = comboVagao.getSelectedIndex();
+                comboVagao.removeItemAt(index);
+                JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Vagão inserido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+              JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Vagão pesado demais para o trem selecionado.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_buttonAdicionarVagaoActionPerformed
     public void infoCollector(GaragemCarros gc, Patio patio){
@@ -172,7 +164,6 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboTrem;
     private javax.swing.JComboBox<String> comboVagao;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelInsert;
     private javax.swing.JLabel labelTrem;
     private javax.swing.JLabel labelVagao;
     // End of variables declaration//GEN-END:variables

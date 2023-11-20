@@ -2,47 +2,84 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="menuCriarTrem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Menu"/>
+            <Property name="text" type="java.lang.String" value="Criar Trem"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuCriarTremMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuListarTrens">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Listar Trens"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuListarTrensMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editar Trem"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuCriarTrem">
+            <MenuItem class="javax.swing.JMenuItem" name="menuInserirLocomotiva">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Criar trem"/>
+                <Property name="text" type="java.lang.String" value="Inserir Locomotiva"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCriarTremActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuInserirLocomotivaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuListarTrens">
+            <MenuItem class="javax.swing.JMenuItem" name="menuInserirVagao">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar trens"/>
-                <Property name="toolTipText" type="java.lang.String" value="Lista os trens cadastrados no sistema"/>
+                <Property name="text" type="java.lang.String" value="Inserir Vag&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuListarTrensActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuInserirVagaoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuEditarTrem">
+            <MenuItem class="javax.swing.JMenuItem" name="menuRemoverUltimoCarro">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar trem"/>
+                <Property name="text" type="java.lang.String" value="Remover &#xda;ltimo Carro"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditarTremActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRemoverUltimoCarroActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuDesfazerTrem">
+            <MenuItem class="javax.swing.JMenuItem" name="menuLocomotivasDispon&#xed;veis">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Desfazer trem"/>
+                <Property name="text" type="java.lang.String" value="Locomotivas Dispon&#xed;veis"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuDesfazerTremActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuLocomotivasDispon&#xed;veisActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuVagoesDispon&#xed;veis">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vag&#xf5;es Dispon&#xed;veis"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuVagoesDispon&#xed;veisActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuDesfazerTrem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Desfazer Trem"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuDesfazerTremMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>

@@ -29,15 +29,20 @@ public class JFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         LabelNomeSistema = new javax.swing.JLabel();
         iconRocket = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        menuCriarTrem = new javax.swing.JMenuItem();
-        menuListarTrens = new javax.swing.JMenuItem();
-        menuEditarTrem = new javax.swing.JMenuItem();
-        menuDesfazerTrem = new javax.swing.JMenuItem();
+        menuCriarTrem = new javax.swing.JMenu();
+        menuListarTrens = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        menuInserirLocomotiva = new javax.swing.JMenuItem();
+        menuInserirVagao = new javax.swing.JMenuItem();
+        menuRemoverUltimoCarro = new javax.swing.JMenuItem();
+        menuLocomotivasDisponíveis = new javax.swing.JMenuItem();
+        menuVagoesDisponíveis = new javax.swing.JMenuItem();
+        menuDesfazerTrem = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,42 +68,73 @@ public class JFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 245, 75, 0);
         jPanel1.add(iconRocket, gridBagConstraints);
 
-        jMenu1.setText("Menu");
-
-        menuCriarTrem.setText("Criar trem");
-        menuCriarTrem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCriarTremActionPerformed(evt);
+        menuCriarTrem.setText("Criar Trem");
+        menuCriarTrem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuCriarTremMouseClicked(evt);
             }
         });
-        jMenu1.add(menuCriarTrem);
+        jMenuBar1.add(menuCriarTrem);
 
-        menuListarTrens.setText("Listar trens");
-        menuListarTrens.setToolTipText("Lista os trens cadastrados no sistema");
-        menuListarTrens.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuListarTrensActionPerformed(evt);
+        menuListarTrens.setText("Listar Trens");
+        menuListarTrens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuListarTrensMouseClicked(evt);
             }
         });
-        jMenu1.add(menuListarTrens);
+        jMenuBar1.add(menuListarTrens);
 
-        menuEditarTrem.setText("Editar trem");
-        menuEditarTrem.addActionListener(new java.awt.event.ActionListener() {
+        jMenu3.setText("Editar Trem");
+
+        menuInserirLocomotiva.setText("Inserir Locomotiva");
+        menuInserirLocomotiva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEditarTremActionPerformed(evt);
+                menuInserirLocomotivaActionPerformed(evt);
             }
         });
-        jMenu1.add(menuEditarTrem);
+        jMenu3.add(menuInserirLocomotiva);
 
-        menuDesfazerTrem.setText("Desfazer trem");
-        menuDesfazerTrem.addActionListener(new java.awt.event.ActionListener() {
+        menuInserirVagao.setText("Inserir Vagão");
+        menuInserirVagao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDesfazerTremActionPerformed(evt);
+                menuInserirVagaoActionPerformed(evt);
             }
         });
-        jMenu1.add(menuDesfazerTrem);
+        jMenu3.add(menuInserirVagao);
 
-        jMenuBar1.add(jMenu1);
+        menuRemoverUltimoCarro.setText("Remover Último Carro");
+        menuRemoverUltimoCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRemoverUltimoCarroActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuRemoverUltimoCarro);
+
+        menuLocomotivasDisponíveis.setText("Locomotivas Disponíveis");
+        menuLocomotivasDisponíveis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLocomotivasDisponíveisActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuLocomotivasDisponíveis);
+
+        menuVagoesDisponíveis.setText("Vagões Disponíveis");
+        menuVagoesDisponíveis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVagoesDisponíveisActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuVagoesDisponíveis);
+
+        jMenuBar1.add(jMenu3);
+
+        menuDesfazerTrem.setText("Desfazer Trem");
+        menuDesfazerTrem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuDesfazerTremMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menuDesfazerTrem);
 
         setJMenuBar(jMenuBar1);
 
@@ -116,29 +152,53 @@ public class JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuCriarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCriarTremActionPerformed
+    private void menuInserirVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInserirVagaoActionPerformed
+        JFrameInserirVagao jfVagao = new JFrameInserirVagao();
+        jfVagao.infoCollector(gc,patio);
+        jfVagao.setVisible(true);
+    }//GEN-LAST:event_menuInserirVagaoActionPerformed
+
+    private void menuInserirLocomotivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInserirLocomotivaActionPerformed
+        JFrameInserirLocomotiva jfLoco = new JFrameInserirLocomotiva();
+        jfLoco.infoCollector(gc,patio);
+        jfLoco.setVisible(true);
+    }//GEN-LAST:event_menuInserirLocomotivaActionPerformed
+
+    private void menuRemoverUltimoCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoverUltimoCarroActionPerformed
+        JFrameRemoveUltimo jfUltimo = new JFrameRemoveUltimo();
+        jfUltimo.infoCollector(gc,patio);
+        jfUltimo.setVisible(true);
+    }//GEN-LAST:event_menuRemoverUltimoCarroActionPerformed
+
+    private void menuLocomotivasDisponíveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLocomotivasDisponíveisActionPerformed
+        JFrameListarLocomotivas jfLoco = new JFrameListarLocomotivas();
+        jfLoco .infoCollector(gc,patio);
+        jfLoco .setVisible(true);
+    }//GEN-LAST:event_menuLocomotivasDisponíveisActionPerformed
+
+    private void menuVagoesDisponíveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVagoesDisponíveisActionPerformed
+        JFrameListarVagoes jfVagoes = new JFrameListarVagoes();
+        jfVagoes .infoCollector(gc,patio);
+        jfVagoes .setVisible(true);
+    }//GEN-LAST:event_menuVagoesDisponíveisActionPerformed
+
+    private void menuCriarTremMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCriarTremMouseClicked
         JFrameCriarTrem criarTrem = new JFrameCriarTrem();
         criarTrem.setVisible(true);
         criarTrem.infoCollector(gc, patio);
-    }//GEN-LAST:event_menuCriarTremActionPerformed
+    }//GEN-LAST:event_menuCriarTremMouseClicked
 
-    private void menuListarTrensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarTrensActionPerformed
+    private void menuListarTrensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuListarTrensMouseClicked
         JFrameListarTrens listarTrens = new JFrameListarTrens();
         listarTrens.setVisible(true);
         listarTrens.infoCollector(gc, patio);
-    }//GEN-LAST:event_menuListarTrensActionPerformed
+    }//GEN-LAST:event_menuListarTrensMouseClicked
 
-    private void menuEditarTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarTremActionPerformed
-        JFrameEditarTrem editarTrem = new JFrameEditarTrem();
-        editarTrem.setVisible(true);
-        editarTrem.infoCollector(gc, patio);
-    }//GEN-LAST:event_menuEditarTremActionPerformed
-
-    private void menuDesfazerTremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDesfazerTremActionPerformed
+    private void menuDesfazerTremMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDesfazerTremMouseClicked
         JFrameDesfazerTrem desfazTrem = new JFrameDesfazerTrem();
         desfazTrem.setVisible(true);
         desfazTrem.infoCollector(gc, patio);
-    }//GEN-LAST:event_menuDesfazerTremActionPerformed
+    }//GEN-LAST:event_menuDesfazerTremMouseClicked
     
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
@@ -151,12 +211,17 @@ public class JFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelNomeSistema;
     private javax.swing.JLabel iconRocket;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuItem menuCriarTrem;
-    private javax.swing.JMenuItem menuDesfazerTrem;
-    private javax.swing.JMenuItem menuEditarTrem;
-    private javax.swing.JMenuItem menuListarTrens;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenu menuCriarTrem;
+    private javax.swing.JMenu menuDesfazerTrem;
+    private javax.swing.JMenuItem menuInserirLocomotiva;
+    private javax.swing.JMenuItem menuInserirVagao;
+    private javax.swing.JMenu menuListarTrens;
+    private javax.swing.JMenuItem menuLocomotivasDisponíveis;
+    private javax.swing.JMenuItem menuRemoverUltimoCarro;
+    private javax.swing.JMenuItem menuVagoesDisponíveis;
     // End of variables declaration//GEN-END:variables
 }

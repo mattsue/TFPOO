@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package rocket.tfpoo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +35,6 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         buttonAdicionarLocomotiva = new javax.swing.JButton();
         labelLocomotiva = new javax.swing.JLabel();
         labelTrem = new javax.swing.JLabel();
-        labelInsert = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -44,24 +44,24 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         comboTrem.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 6, 0, 119);
+        gridBagConstraints.insets = new java.awt.Insets(154, 6, 0, 83);
         jPanel1.add(comboTrem, gridBagConstraints);
 
         comboLocomotiva.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         comboLocomotiva.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 6, 0, 119);
+        gridBagConstraints.insets = new java.awt.Insets(20, 6, 0, 83);
         jPanel1.add(comboLocomotiva, gridBagConstraints);
 
         buttonAdicionarLocomotiva.setBackground(new java.awt.Color(255, 153, 153));
@@ -77,12 +77,12 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 69;
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 243, 151, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 237, 168, 0);
         jPanel1.add(buttonAdicionarLocomotiva, gridBagConstraints);
 
         labelLocomotiva.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -90,9 +90,9 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         labelLocomotiva.setText("Escolha uma locomotiva:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 42, 0, 0);
         jPanel1.add(labelLocomotiva, gridBagConstraints);
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -100,54 +100,46 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         labelTrem.setText("Escolha um trem:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 93, 0, 0);
-        jPanel1.add(labelTrem, gridBagConstraints);
-
-        labelInsert.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        labelInsert.setForeground(new java.awt.Color(255, 153, 153));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 367;
-        gridBagConstraints.ipady = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(118, 179, 0, 119);
-        jPanel1.add(labelInsert, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(152, 129, 0, 0);
+        jPanel1.add(labelTrem, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAdicionarLocomotivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarLocomotivaActionPerformed
-        String selected = comboLocomotiva.getSelectedItem().toString();
-        String id = selected.substring(12, selected.length());
-        int idLocomotiva = Integer.parseInt(id);
-        selected = comboTrem.getSelectedItem().toString();
-        id = selected.substring(6, selected.length());
-        int idTrem = Integer.parseInt(id);
-        Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
-        Trem tremadd = patio.getTrem(idTrem);
-        boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
-        if(engatado){
-            labelInsert.setText("Locomotiva inserida com sucesso!");
+        if(comboLocomotiva.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameInserirLocomotiva.this, "Nenhuma locomotiva disponível.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+            String selected = comboLocomotiva.getSelectedItem().toString();
+            String id = selected.substring(12, selected.length());
+            int idLocomotiva = Integer.parseInt(id);
+            selected = comboTrem.getSelectedItem().toString();
+            id = selected.substring(6, selected.length());
+            int idTrem = Integer.parseInt(id);
+            Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
+            Trem tremadd = patio.getTrem(idTrem);
+            boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
+            if(engatado){
+                JOptionPane.showMessageDialog(JFrameInserirLocomotiva.this, "Locomotiva inserida com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            }
+            int index = comboLocomotiva.getSelectedIndex();
+            comboLocomotiva.removeItemAt(index);
         }
-        int index = comboLocomotiva.getSelectedIndex();
-        comboLocomotiva.removeItemAt(index);
     }//GEN-LAST:event_buttonAdicionarLocomotivaActionPerformed
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
@@ -171,7 +163,6 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboLocomotiva;
     private javax.swing.JComboBox<String> comboTrem;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelInsert;
     private javax.swing.JLabel labelLocomotiva;
     private javax.swing.JLabel labelTrem;
     // End of variables declaration//GEN-END:variables

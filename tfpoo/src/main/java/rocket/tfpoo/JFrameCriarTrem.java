@@ -117,35 +117,38 @@ public class JFrameCriarTrem extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // pegar id do trem através da caixa de texto
-        caixaIdTrem.setVisible(true); 
-        if (caixaIdTrem.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Por favor, informe o identificador do trem.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-            caixaIdTrem.requestFocus();
-        } else {
-            String idTrem = caixaIdTrem.getText();
-            String id = idTrem.substring(0, idTrem.length());
-            int tremId = Integer.parseInt(id);
-            // pegar id da lococmotiva e transformar em objeto
-            String locoSelecionada = comboLocomotiva.getSelectedItem().toString();
-            String idLoco = locoSelecionada .substring(12, locoSelecionada .length());
-            int idLocomotiva = Integer.parseInt(idLoco);
-            Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
+        caixaIdTrem.setVisible(true);
+        if(comboLocomotiva.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Nenhuma locomotiva disponível.", "Mensagem", JOptionPane.ERROR_MESSAGE);
+        }else{
+            if (caixaIdTrem.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Por favor, informe o identificador do trem.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+                caixaIdTrem.requestFocus();
+            } else {
+                String idTrem = caixaIdTrem.getText();
+                String id = idTrem.substring(0, idTrem.length());
 
-            // tratamento de erro para entrada de dados (id do trem)
-            try {
-                // Checa se o identificador do trem já está em uso
-                if (patio.verificaIdTrem(tremId)) {
-                    JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Identificador do trem já está em uso. Escolha um identificador único.", "Erro", JOptionPane.ERROR_MESSAGE);
-                    return; // Sai do método
-                }    
-                patio.criaTrem(tremId, locoadd, gc);
-                int index = comboLocomotiva.getSelectedIndex();
-                comboLocomotiva.removeItemAt(index);
-                JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Trem criado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Identificador do trem deve ser um número inteiro válido.", "Erro", JOptionPane.ERROR_MESSAGE);
-                return;
-              }  
+                // tratamento de erro para entrada de dados (id do trem)
+                try {
+                    int tremId = Integer.parseInt(id);
+                    // pegar id da lococmotiva e transformar em objeto
+                    String locoSelecionada = comboLocomotiva.getSelectedItem().toString();
+                    String idLoco = locoSelecionada .substring(12, locoSelecionada .length());
+                    int idLocomotiva = Integer.parseInt(idLoco);
+                    Locomotiva locoadd = (Locomotiva) gc.getCarro(idLocomotiva);
+                    // Checa se o identificador do trem já está em uso
+                    if (patio.verificaIdTrem(tremId)) {
+                        JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Identificador do trem já está em uso. Escolha um identificador único.", "Erro", JOptionPane.ERROR_MESSAGE);
+                        return; // Sai do método
+                    }    
+                    patio.criaTrem(tremId, locoadd, gc);
+                    int index = comboLocomotiva.getSelectedIndex();
+                    comboLocomotiva.removeItemAt(index);
+                    JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Trem criado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+                }catch (java.lang.NumberFormatException ex){
+                    JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Identificador do trem deve ser um número inteiro válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }  
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

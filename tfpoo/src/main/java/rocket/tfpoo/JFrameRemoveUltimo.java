@@ -4,6 +4,8 @@
  */
 package rocket.tfpoo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author yasmi
@@ -32,7 +34,6 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
         comboTrem = new javax.swing.JComboBox<>();
         removerUltimo = new javax.swing.JButton();
         labelTrem = new javax.swing.JLabel();
-        labelInsert = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -42,12 +43,12 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
         comboTrem.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(32, 18, 0, 142);
+        gridBagConstraints.insets = new java.awt.Insets(162, 18, 0, 111);
         jPanel1.add(comboTrem, gridBagConstraints);
 
         removerUltimo.setBackground(new java.awt.Color(255, 153, 153));
@@ -63,12 +64,12 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 42;
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(65, 281, 151, 0);
+        gridBagConstraints.insets = new java.awt.Insets(65, 281, 166, 0);
         jPanel1.add(removerUltimo, gridBagConstraints);
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -76,22 +77,10 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
         labelTrem.setText("Escolha um trem:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 115, 0, 0);
-        jPanel1.add(labelTrem, gridBagConstraints);
-
-        labelInsert.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        labelInsert.setForeground(new java.awt.Color(255, 153, 153));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 388;
-        gridBagConstraints.ipady = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(123, 192, 0, 142);
-        jPanel1.add(labelInsert, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(160, 115, 0, 0);
+        jPanel1.add(labelTrem, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +88,7 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,20 +99,24 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void removerUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerUltimoActionPerformed
-        String selected = comboTrem.getSelectedItem().toString();
-        String id = selected.substring(6, selected.length());
-        int idTrem = Integer.parseInt(id);
-        Trem tremadd = patio.getTrem(idTrem);
-        if(tremadd.getCarroByPos(tremadd.getSize()-1) instanceof Locomotiva){
-            tremadd.desengataLocomotiva(gc);
+        if(comboTrem.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameRemoveUltimo.this, "Nenhum trem disponível.", "Mensagem", JOptionPane.ERROR_MESSAGE);
         }else{
-            tremadd.desengataVagao(gc); 
+            String selected = comboTrem.getSelectedItem().toString();
+            String id = selected.substring(6, selected.length());
+            int idTrem = Integer.parseInt(id);
+            Trem tremadd = patio.getTrem(idTrem);
+            if(tremadd.getCarroByPos(tremadd.getSize()-1) instanceof Locomotiva){
+                tremadd.desengataLocomotiva(gc);
+            }else{
+                tremadd.desengataVagao(gc); 
+            }
+            if(tremadd.getSize()==1){
+                int index = comboTrem.getSelectedIndex();
+                comboTrem.removeItemAt(index);
+            }
+            JOptionPane.showMessageDialog(JFrameRemoveUltimo.this, "Último carro removido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         }
-        if(tremadd.getSize()==1){
-            int index = comboTrem.getSelectedIndex();
-            comboTrem.removeItemAt(index);
-        }
-        labelInsert.setText("Último elemento removido com sucesso!");
     }//GEN-LAST:event_removerUltimoActionPerformed
 
     public void infoCollector(GaragemCarros gc, Patio patio){
@@ -141,7 +134,6 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboTrem;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelInsert;
     private javax.swing.JLabel labelTrem;
     private javax.swing.JButton removerUltimo;
     // End of variables declaration//GEN-END:variables

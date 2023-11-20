@@ -142,14 +142,18 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTremSelecionadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String tremSelecionado = comboTrens.getSelectedItem().toString();
-        String id = tremSelecionado.substring(6, tremSelecionado.length());
-        int idTrem = Integer.parseInt(id);
-        patio.desfazTrem(idTrem, gc);
-        JOptionPane.showMessageDialog(JFrameDesfazerTrem.this, "Trem removido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-        int index = comboTrens.getSelectedIndex();
-        comboTrens.removeItemAt(index);
-        txtTremSelecionado.setText(comboTrens.getSelectedItem().toString());
+        if(comboTrens.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(JFrameDesfazerTrem.this, "Nenhum trem disponível.", "Mensagem", JOptionPane.ERROR_MESSAGE);
+        }else{
+            String tremSelecionado = comboTrens.getSelectedItem().toString();
+            String id = tremSelecionado.substring(6, tremSelecionado.length());
+            int idTrem = Integer.parseInt(id);
+            patio.desfazTrem(idTrem, gc);
+            JOptionPane.showMessageDialog(JFrameDesfazerTrem.this, "Trem removido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            int index = comboTrens.getSelectedIndex();
+            comboTrens.removeItemAt(index);
+            txtTremSelecionado.setText(comboTrens.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public void infoCollector(GaragemCarros gc, Patio patio){
