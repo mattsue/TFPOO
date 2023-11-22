@@ -74,6 +74,7 @@ public class JFrameListarVagoes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableVagoes.setAutoscrolls(true);
         jScrollPane1.setViewportView(tableVagoes);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -100,6 +101,7 @@ public class JFrameListarVagoes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
