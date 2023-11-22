@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package rocket.tfpoo;
 
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author yasmi
+ * @author yasmin
  */
 public class JFrameRemoveUltimo extends javax.swing.JFrame {
     private GaragemCarros gc;
