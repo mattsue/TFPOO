@@ -85,7 +85,6 @@ public class Leitor{
                     System.exit(0);
                 }else{
                     if(cont!=1){
-                        System.out.println(itensLinha[0]);
                         int compId = 0; // ID do trem
                         int locomotivaId = 0; // ID da locomotiva
                         try {

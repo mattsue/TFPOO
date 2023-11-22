@@ -136,7 +136,7 @@ public class Trem {
         int sizeC = getSize();
         int sizeV = getQuantVagoes();
         for(int i = 0; i < sizeC; i++){
-            if(sizeC<sizeV){
+            if(i<sizeV){
                 desengataVagao(gc);
             }
             else{
