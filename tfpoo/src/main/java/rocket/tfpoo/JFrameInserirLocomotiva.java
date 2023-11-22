@@ -49,7 +49,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(154, 6, 0, 83);
+        gridBagConstraints.insets = new java.awt.Insets(154, 6, 0, 135);
         jPanel1.add(comboTrem, gridBagConstraints);
 
         comboLocomotiva.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
@@ -61,7 +61,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 178;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 6, 0, 83);
+        gridBagConstraints.insets = new java.awt.Insets(20, 6, 0, 135);
         jPanel1.add(comboLocomotiva, gridBagConstraints);
 
         buttonAdicionarLocomotiva.setBackground(new java.awt.Color(255, 153, 153));
@@ -82,7 +82,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 69;
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 237, 168, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 289, 168, 0);
         jPanel1.add(buttonAdicionarLocomotiva, gridBagConstraints);
 
         labelLocomotiva.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -92,7 +92,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 42, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 94, 0, 0);
         jPanel1.add(labelLocomotiva, gridBagConstraints);
 
         labelTrem.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -102,23 +102,22 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(152, 129, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(152, 181, 0, 0);
         jPanel1.add(labelTrem, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAdicionarLocomotivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarLocomotivaActionPerformed
