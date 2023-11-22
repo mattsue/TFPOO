@@ -150,6 +150,7 @@ public class JFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuInserirVagaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInserirVagaoActionPerformed
@@ -204,6 +205,7 @@ public class JFrame extends javax.swing.JFrame {
         this.gc = gc;
         this.patio = patio;
     }
+    
     /**
      * @param args the command line arguments
      */
