@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 public class JFrameRemoveUltimo extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
+    private Leitor leitor;
     /**
      * Creates new form JFrameRemoveUltimo
      */
@@ -110,6 +111,7 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
                 int index = comboTrem.getSelectedIndex();
                 comboTrem.removeItemAt(index);
             }
+            leitor.reescreverComposicao();
             JOptionPane.showMessageDialog(JFrameRemoveUltimo.this, "Último carro removido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_removerUltimoActionPerformed
@@ -117,6 +119,7 @@ public class JFrameRemoveUltimo extends javax.swing.JFrame {
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
+        leitor = new Leitor(gc, patio);
         for(Trem t:patio.trens){
             if(t.getSize()>1){
              String item = "Trem: "+t.getId();

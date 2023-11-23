@@ -1,5 +1,10 @@
 package rocket.tfpoo;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 /**
  * Transforma o arquivo .csv em uma matriz manipulavel
@@ -80,33 +85,60 @@ public class Leitor{
             while((linha = dataC.readLine()) != null){
                 cont++;
                 String[] itensLinha = linha.split(",");
-                if(itensLinha.length !=2){
+                if(itensLinha.length !=3){
                     System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Número de colunas inválido no arquivo composicao.csv");
                     System.exit(0);
                 }else{
                     if(cont!=1){
                         int compId = 0; // ID do trem
-                        int locomotivaId = 0; // ID da locomotiva
-                        try {
+                        String[] locomotivas;
+                        String[] vagoes;
                             compId = Integer.parseInt(itensLinha[0]); // ID do trem
-                            locomotivaId = Integer.parseInt(itensLinha[1]); // ID da locomotiva
-                        } catch (Exception e) {
-                            System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada inválida no arquivo composicao.csv");
-                            System.exit(0);
+                            locomotivas = itensLinha[1].split(";"); // IDs da locomotiva
+                            vagoes = itensLinha[2].split(";");
+                        for(String l: locomotivas){
+                            if(gc.verificaIdCarro(Integer.parseInt(l)) == false){
+                                System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'locomotiva' inválida no arquivo composicao.csv");
+                                System.exit(0);
+                            }
                         }
-                        if(gc.verificaIdCarro(locomotivaId) == false){
-                            System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'locomotiva' inválida no arquivo composicao.csv");
-                            System.exit(0);
+                       for(String v: vagoes){
+                            if(Integer.parseInt(v)>0){
+                                if(gc.verificaIdCarro(Integer.parseInt(v)) == false){
+                                    System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'vagao' inválida no arquivo composicao.csv");
+                                    System.exit(0);
+                                }
+                            }
                         }
                         if(patio.verificaIdTrem(compId) == true){
                             System.out.println("Erro encontrado durante a leitura dos arquivos!! \nError: Entrada no campo 'id' inválida no arquivo composicao.csv");
                             System.exit(0);
                         }
+                        ArrayList<Carro> garagem = new ArrayList<Carro>();
                         for (Carro c : gc.garagemCarro) {
-                            if (c.getId() == locomotivaId) {
-                                Trem t = new Trem(compId, (Locomotiva) c, gc);
+                            garagem.add(c);
+                        }
+                        Trem t = null;
+                        for (Carro c : garagem) {
+                            if (c.getId() == Integer.parseInt(locomotivas[0])) {
+                                t = new Trem(compId, (Locomotiva) c, gc);
                                 patio.addTrem(t);
-                                break;
+                            }
+                        }
+                        if(locomotivas.length>1){
+                            for (Carro c : garagem) {
+                                for(int i = 1; i < locomotivas.length; i++){
+                                    if (c.getId() == Integer.parseInt(locomotivas[i])) {
+                                        t.engataLocomotiva((Locomotiva) c, gc);
+                                    }
+                                }
+                            }
+                        }
+                        for (Carro c : garagem) {
+                            for(String v : vagoes){
+                                if (c.getId() == Integer.parseInt(v)) {
+                                    t.engataVagao((Vagao) c, gc);
+                                }
                             }
                         }
                     }
@@ -117,4 +149,76 @@ public class Leitor{
             System.out.println(e);
         }
    }
+
+   public void reescreverLocomotiva() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("locomotiva.csv"))) {
+            for (Carro carro : gc.garagemCarro) {
+                if (carro instanceof Locomotiva) {
+                    Locomotiva locomotiva = (Locomotiva) carro;
+                    writer.write(locomotiva.getId() + "," + locomotiva.getMaxPeso() + "," + locomotiva.getMaxVagoes());
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void reescreverVagoes() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("vagoes.csv"))) {
+            for (Carro carro : gc.garagemCarro) {
+                if (carro instanceof Vagao) {
+                    Vagao vagao = (Vagao) carro;
+                    writer.write(vagao.getId() + "," + vagao.getCapacidade());
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void reescreverComposicao() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("composicao.csv"))) {
+            writer.write("id,locomotivas,vagoes");
+            writer.newLine();
+    
+            for (Trem t : patio.trens) {
+                StringBuilder linha = new StringBuilder();
+                linha.append(t.getId()).append(",");
+    
+                // Locomotivas
+                for (int j = 0; j < t.getQuantLocomotivas(); j++) {
+                    Locomotiva l = (Locomotiva) t.getCarroByPos(j);
+                    linha.append(l.getId());
+                    if (j < t.getQuantLocomotivas() - 1) {
+                        linha.append(";");
+                    }
+                }
+                if(t.getQuantVagoes()>0){
+                    linha.append(",");
+                }else{
+                    linha.append(",-1");
+                }
+    
+                // Vagoes
+                for (int k = 0; k < t.getQuantVagoes(); k++) {
+                    Vagao v = (Vagao) t.getCarroByPos(k + t.getQuantLocomotivas());
+                    linha.append(v.getId());
+                    if (k < t.getQuantVagoes() - 1) {
+                        linha.append(";");
+                    }
+                }
+    
+                writer.write(linha.toString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever no arquivo composicao.csv");
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
 }

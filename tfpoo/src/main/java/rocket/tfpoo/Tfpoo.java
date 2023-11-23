@@ -33,6 +33,8 @@ public class Tfpoo {
                 jf.setVisible(true);
             }
         });
+
+        System.out.println(patio.trens);
         
     }
 }

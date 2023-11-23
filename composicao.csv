@@ -1,4 +1,4 @@
-id,locomotiva
-1,1
-2,2
-3,3
+id,locomotivas,vagoes
+1,1,-1
+2,2,-1
+3,3,-1

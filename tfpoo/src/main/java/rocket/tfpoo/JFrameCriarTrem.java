@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class JFrameCriarTrem extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
+    private Leitor leitor;
     /**
      * Creates new form JFrameCriarTrem
      */
@@ -138,6 +139,7 @@ public class JFrameCriarTrem extends javax.swing.JFrame {
                         return; // Sai do método
                     }    
                     patio.criaTrem(tremId, locoadd, gc);
+                    leitor.reescreverComposicao();
                     int index = comboLocomotiva.getSelectedIndex();
                     comboLocomotiva.removeItemAt(index);
                     JOptionPane.showMessageDialog(JFrameCriarTrem.this, "Trem criado com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
@@ -151,6 +153,7 @@ public class JFrameCriarTrem extends javax.swing.JFrame {
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
+        leitor = new Leitor(gc, patio);
         for(Carro c : gc.garagemCarro){
             if(c instanceof Locomotiva){
                 String item = "Locomotiva: "+c.id;

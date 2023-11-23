@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class JFrameInserirVagao extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
+    private Leitor leitor;
     /**
      * Creates new form JFrameInserirVagao
      */
@@ -135,6 +136,7 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
                 int index = comboVagao.getSelectedIndex();
                 comboVagao.removeItemAt(index);
                 JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Vagão inserido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+                leitor.reescreverComposicao();
             }else{
               JOptionPane.showMessageDialog(JFrameInserirVagao.this, "Vagão pesado demais para o trem selecionado.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
@@ -143,6 +145,7 @@ public class JFrameInserirVagao extends javax.swing.JFrame {
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
+        leitor = new Leitor(gc, patio);
         for(Carro c:gc.garagemCarro){
             if(c instanceof Vagao){
                 String item = "Vagão: "+c.id;

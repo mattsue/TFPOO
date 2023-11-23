@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class JFrameDesfazerTrem extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
+    private Leitor leitor;
     /**
      * Creates new form JFrameDesfazerTrem
      */
@@ -147,6 +148,7 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
             int idTrem = Integer.parseInt(id);
             patio.desfazTrem(idTrem, gc);
             JOptionPane.showMessageDialog(JFrameDesfazerTrem.this, "Trem removido com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            leitor.reescreverComposicao();
             int index = comboTrens.getSelectedIndex();
             comboTrens.removeItemAt(index);
             txtTremSelecionado.setText(comboTrens.getSelectedItem().toString());
@@ -156,6 +158,7 @@ public class JFrameDesfazerTrem extends javax.swing.JFrame {
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
+        leitor = new Leitor(gc, patio);
         for(Trem t : patio.trens){
             String item = "Trem: "+t.getId();
             comboTrens.addItem(item);  

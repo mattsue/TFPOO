@@ -59,6 +59,10 @@ public class Trem {
         }
         return carros.get(posicao);
     }
+    
+    public ArrayList<Carro> getCarros(){
+        return this.carros;
+    }
 
     public Carro getCarroByPos(int posicao) {
         return carros.get(posicao);

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class JFrameInserirLocomotiva extends javax.swing.JFrame {
     private GaragemCarros gc;
     private Patio patio;
+    private Leitor leitor;
     /**
      * Creates new form JFrameInserirLocomotiva
      */
@@ -131,6 +132,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
             boolean engatado = tremadd.engataLocomotiva(locoadd,gc);
             if(engatado){
                 JOptionPane.showMessageDialog(JFrameInserirLocomotiva.this, "Locomotiva inserida com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+                leitor.reescreverComposicao();
             }
             int index = comboLocomotiva.getSelectedIndex();
             comboLocomotiva.removeItemAt(index);
@@ -139,6 +141,7 @@ public class JFrameInserirLocomotiva extends javax.swing.JFrame {
     public void infoCollector(GaragemCarros gc, Patio patio){
         this.gc = gc;
         this.patio = patio;
+        leitor = new Leitor(gc, patio);
         for(Carro c:gc.garagemCarro){
             if(c instanceof Locomotiva){
                 String item = "Locomotiva: "+c.id;
